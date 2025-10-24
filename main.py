@@ -7,7 +7,7 @@ z = 0
 
 for i in range(100000):
     
-    modded_crit = crit_chance * (1 + 2.4 + enervate*j) #2.4 is sentient surge cc
+    modded_crit = crit_chance * (1 + 2.4) + enervate*j #2.4 is sentient surge cc
     j += 1
 
     if modded_crit <= 1:
