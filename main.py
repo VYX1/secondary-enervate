@@ -1,6 +1,7 @@
 import random
 import math
 crit_chance = 0.16 # change with whatever the base cc of gun in question is
+#for weapons with total cc before enervate >200% added bonus is always be +25% total cc avg
 enervate = 0.10
 j = 0 # enervate cc counter
 k = 0 # enervate 'big crit' counter
@@ -10,7 +11,7 @@ ms = 3.3 # modded. always 1 if beam weapon, regardless of modded multi.
 ms_max = math.ceil(ms)
 ms_min = math.floor(ms)
 
-for i in range(100000):
+for i in range(1000000):
     k_incremented = False
     modded_crit = crit_chance * (1 + 2.4) + enervate*j # 2.4 is sentient surge cc (240%)
     j += 1
@@ -53,4 +54,4 @@ for i in range(100000):
         j = 0
         k = 0
     
-print(f"{z/100000/ms}")
+print(f"{z/1000000/ms}")
