@@ -1,14 +1,14 @@
 import random
 import math
 
-modded_crit = 0.16 * (1 + 2.4) # crit before enervate is counted
+modded_crit = 0.16 * (1 + 2.4) + 0.25 # crit before enervate is counted
 # for weapons with total cc before enervate >200% added bonus is always be +25% total cc avg
 enervate = 0.10
 j = 0 # enervate cc counter
 k = 0 # enervate 'big crit' counter
 z = 0 # count amount of base / yellow / orange / red crits (0 / 1 / 2 / 3)
 p = 0 # for loop for multishot
-ms = 3.3 # modded. always 1 if beam weapon, regardless of modded multi. 
+ms = 1 # modded. always 1 if beam weapon, regardless of modded multi. 
 ms_max = math.ceil(ms)
 ms_min = math.floor(ms)
 
@@ -29,7 +29,7 @@ for i in range(1000000):
                 z += 0
             else:
                 z += 1
-        if total_crit > 2:
+        if total_crit >= 2:
             simulated_crit = random.randint(0, 100)
             if simulated_crit > total_crit*100-200:
                 z += 2
@@ -41,7 +41,7 @@ for i in range(1000000):
                 if not k_incremented:
                     k += 1
                     k_incremented = True
-        if total_crit > 1:
+        if 2 > total_crit > 1:
             simulated_crit = random.randint(0, 100)
             if simulated_crit > total_crit*100-100:
                 z += 1
