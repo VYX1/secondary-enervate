@@ -24,14 +24,14 @@ for i in range(1000000):
     
     for p in range(simulated_ms):
         if total_crit <= 1:
-            simulated_crit = random.randint(0, 100)
-            if simulated_crit > total_crit*100:
+            simulated_crit = random.randint(0, 1000)
+            if simulated_crit > total_crit*1000:
                 z += 0
             else:
                 z += 1
         if total_crit >= 2:
-            simulated_crit = random.randint(0, 100)
-            if simulated_crit > total_crit*100-200:
+            simulated_crit = random.randint(0, 1000)
+            if simulated_crit > total_crit*1000-2000:
                 z += 2
                 if not k_incremented:
                     k += 1
@@ -42,8 +42,8 @@ for i in range(1000000):
                     k += 1
                     k_incremented = True
         if 2 > total_crit > 1:
-            simulated_crit = random.randint(0, 100)
-            if simulated_crit > total_crit*100-100:
+            simulated_crit = random.randint(0, 1000)
+            if simulated_crit > total_crit*1000-1000:
                 z += 1
             else:
                 z += 2
